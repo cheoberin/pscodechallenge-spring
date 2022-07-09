@@ -1,15 +1,13 @@
 package com.purespectrum.rest.api.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "user")
 public class UserModel {
 
-
     @Id
-    private Integer code;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long code;
     @Column(nullable = false, length = 50)
     private String name;
     @Column(nullable = false, length = 10)
@@ -17,11 +15,11 @@ public class UserModel {
     @Column(nullable = false, length = 10)
     private String password;
 
-    public Integer getCode() {
+    public Long getCode() {
         return this.code;
     }
 
-    public void setCode(Integer cod) {
+    public void setCode(Long cod) {
         this.code = cod;
     }
 
