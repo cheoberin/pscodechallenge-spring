@@ -9,4 +9,5 @@ public class EbookModel extends Book {
 
     @Column(nullable = false)
     private String format;
+
 }
