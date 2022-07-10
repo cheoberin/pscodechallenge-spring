@@ -13,11 +13,11 @@ public class UserController {
     private UserRepository repository;
 
     @GetMapping(path = "/api/user/{userCod}")
-    public ResponseEntity check(@PathVariable("userCod") Integer cod){
-        return repository.findById(cod).map(record -> ResponseEntity.ok().body(record)).orElse(ResponseEntity.notFound().build());
+    public ResponseEntity check(@PathVariable("userCod") Long code){
+        return repository.findById(code).map(record -> ResponseEntity.ok().body(record)).orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping(path = "/api/user/save")
+    @PostMapping(path = "/api/user/new")
     public UserModel save(@RequestBody UserModel user){
         return repository.save(user);
     }
